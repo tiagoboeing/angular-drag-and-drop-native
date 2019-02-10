@@ -1,0 +1,46 @@
+<div class="header">
+	Example by
+	<a href="https://www.linkedin.com/in/tiagoboeing/" target="_blank">Tiago Boeing</a> |
+	<a href="https://github.com/tiagoboeing" target="_blank">Github</a><br>
+  Use where and how you want
+</div>
+
+<h1>Drag and drop a element of list</h1>
+<p>When a block is drop, the json will be modified and order is added</p>
+
+<!-- instance cdkDrop here. Div is not required :D -->
+<div class="container" 
+  [cdkDropListData]="items" 
+  (cdkDropListDropped)="drop($event)" 
+  cdkDropList>
+
+	<!-- for here -->
+	<div class="item" *ngFor="let item of items" cdkDrag>
+		{{item.name}}
+
+		<div class="custom-placeholder" *cdkDragPlaceholder>
+			Drop to order
+		</div>
+	</div>
+
+</div>
+
+
+<h2>Result of order</h2>
+<pre class="code">{{itemsWithOrder | json}}</pre>
+
+<h2>Instructions for install cdk</h2>
+<ul>
+	<li>Lets run <b>npm install @angular/cdk</b></li>
+  <li>
+    Add in imports section on file app.module.ts: <b>DragDropModule</b>
+    <ul>
+      <li>You can import in your shared module</li>
+    </ul>
+  </li>
+</ul>
+
+Documentation:
+<a href="https://material.angular.io/cdk/drag-drop/overview" target="_blank">
+  https://material.angular.io/cdk/drag-drop/overview
+</a>
